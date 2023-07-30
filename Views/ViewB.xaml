@@ -9,6 +9,8 @@
                    FontSize="40"
                    Foreground="Red"></Label>
             <TextBox Text="{Binding ViewBTextBox}"></TextBox>
+            <Button Content="OK"
+                    Command="{Binding OKButton}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>

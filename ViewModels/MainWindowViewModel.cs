@@ -60,7 +60,15 @@ namespace PSamples.ViewModels
         {
             var p = new DialogParameters();
             p.Add(nameof(ViewBViewModel.ViewBTextBox), SystemDateLabel);
-            _dialogService.ShowDialog(nameof(ViewB), p, null);
+            _dialogService.ShowDialog(nameof(ViewB), p, ViewBClose);
+        }
+
+        private void ViewBClose(IDialogResult dialogResult)
+        {
+            if (dialogResult.Result == ButtonResult.OK)
+            {
+                SystemDateLabel = dialogResult.Parameters.GetValue<string>(nameof(ViewBViewModel.ViewBTextBox));
+            }
         }
     }
 }

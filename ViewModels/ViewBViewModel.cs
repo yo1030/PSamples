@@ -11,7 +11,7 @@ namespace PSamples.ViewModels
     {
         public ViewBViewModel()
         {
-
+            OKButton = new DelegateCommand(OKButtonExecute);
         }
 
         public string Title => "";
@@ -25,6 +25,7 @@ namespace PSamples.ViewModels
         }
 
         public event Action<IDialogResult> RequestClose;
+        public DelegateCommand OKButton { get; }
 
         public bool CanCloseDialog()
         {
@@ -38,6 +39,13 @@ namespace PSamples.ViewModels
         public void OnDialogOpened(IDialogParameters parameters)
         {
             ViewBTextBox = parameters.GetValue<string>(nameof(ViewBTextBox));
+        }
+
+        private void OKButtonExecute ()
+        {
+            var p = new DialogParameters();
+            p.Add(nameof(ViewBTextBox), ViewBTextBox);
+            RequestClose?.Invoke(new DialogResult(ButtonResult.OK, p));
         }
     }
 }
