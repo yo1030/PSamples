@@ -20,6 +20,7 @@ namespace PSamples.ViewModels
             _regionManager = regionManager;
             SystemDateUpdateBtn = new DelegateCommand(SystemDateUpdateBtnExecute);
             ShowViewABtn = new DelegateCommand(ShowViewABtnExecute);
+            ShowViewPBtn = new DelegateCommand(ShowViewPBtnExecute);
         }
 
         //SystemDateLabel
@@ -38,10 +39,17 @@ namespace PSamples.ViewModels
             SystemDateLabel = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
         }
         public DelegateCommand ShowViewABtn { get; }
+        public DelegateCommand ShowViewPBtn { get; }
 
         private void ShowViewABtnExecute()
         {
             _regionManager.RequestNavigate("ContentRegion", nameof(ViewA));
+        }
+        private void ShowViewPBtnExecute()
+        {
+            var p = new NavigationParameters();
+            p.Add(nameof(ViewAViewModel.MyLabel), SystemDateLabel);
+            _regionManager.RequestNavigate("ContentRegion", nameof(ViewA), p);
         }
     }
 }

@@ -4,9 +4,12 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Label Content="画面A"
+        <StackPanel>
+            <Label Content="画面A"
                FontSize="30"
                Foreground="Brown">
-        </Label>
+            </Label>
+            <Label Content="{Binding MyLabel}"></Label>
+        </StackPanel>
     </Grid>
 </UserControl>

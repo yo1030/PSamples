@@ -11,8 +11,10 @@
             <Label Content="{Binding SystemDateLabel}"></Label>
             <Button Content="システム日時更新"
                     Command="{Binding SystemDateUpdateBtn}"></Button>
-            <Button Content="show view A button"
+            <Button Content="show view A"
                     Command="{Binding ShowViewABtn}"></Button>
+            <Button Content="show view A パラメータあり"
+                    Command="{Binding ShowViewPBtn}"></Button>
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>
     </Grid>
