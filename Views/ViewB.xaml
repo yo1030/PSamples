@@ -8,6 +8,7 @@
             <Label Content="ViewB画面"
                    FontSize="40"
                    Foreground="Red"></Label>
+            <TextBox Text="{Binding ViewBTextBox}"></TextBox>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -58,7 +58,9 @@ namespace PSamples.ViewModels
         }
         private void ShowViewBBtnExecute()
         {
-            _dialogService.ShowDialog(nameof(ViewB), null, null);
+            var p = new DialogParameters();
+            p.Add(nameof(ViewBViewModel.ViewBTextBox), SystemDateLabel);
+            _dialogService.ShowDialog(nameof(ViewB), p, null);
         }
     }
 }

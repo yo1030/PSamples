@@ -14,7 +14,15 @@ namespace PSamples.ViewModels
 
         }
 
-        public string Title => throw new NotImplementedException();
+        public string Title => "";
+
+        //
+        private string _viewBTextBox = "XXX";
+        public string ViewBTextBox
+        {
+            get { return _viewBTextBox; }
+            set { SetProperty(ref _viewBTextBox, value); }
+        }
 
         public event Action<IDialogResult> RequestClose;
 
@@ -29,6 +37,7 @@ namespace PSamples.ViewModels
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
+            ViewBTextBox = parameters.GetValue<string>(nameof(ViewBTextBox));
         }
     }
 }
