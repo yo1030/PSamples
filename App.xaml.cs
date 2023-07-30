@@ -16,7 +16,7 @@ namespace PSamples
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<ViewA>();
         }
     }
 }
