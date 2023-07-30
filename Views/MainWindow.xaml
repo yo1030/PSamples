@@ -3,8 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525" >
+        Title="{Binding Title}" Height="350" Width="525"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <StackPanel>
+            <Label Content="システム日時"></Label>
+            <Label Content="{Binding SystemDateLabel}"></Label>
+            <Button Content="システム日時更新"
+                    Command="{Binding SystemDateUpdateBtn}"></Button>
+            <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        </StackPanel>
     </Grid>
 </Window>
