@@ -11,6 +11,8 @@
             </Label>
             <TextBlock></TextBlock>
             <Label Content="{Binding MyLabel}"></Label>
+            <Button Content="OK"
+                    Command="{Binding OKButton}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>
