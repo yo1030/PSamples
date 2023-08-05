@@ -23,6 +23,10 @@ namespace PSamples.ViewModels
             MyListBox.Add("AAAAA");
             MyListBox.Add("SSSSS");
             MyListBox.Add("DDDDD");
+
+            Areas.Add(new ComboBoxViewModel(1, "yokohama"));
+            Areas.Add(new ComboBoxViewModel(2, "kobe"));
+            Areas.Add(new ComboBoxViewModel(3, "takamatsu"));
         }
 
         //MyListBox
@@ -32,6 +36,15 @@ namespace PSamples.ViewModels
             get { return _myListBox; }
             set { SetProperty(ref _myListBox, value); }
         }
+
+        //Areas
+        private ObservableCollection<ComboBoxViewModel> _areas = new ObservableCollection<ComboBoxViewModel>();
+        public ObservableCollection<ComboBoxViewModel> Areas
+        {
+            get { return _areas; }
+            set { SetProperty(ref _areas, value); }
+        }
+
 
 
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)

@@ -17,7 +17,7 @@
                     Command="{Binding ShowViewPBtn}"></Button>
             <Button Content="show view B"
                     Command="{Binding ShowViewBBtn}"></Button>
-            <Button Content="show view C : ListBox"
+            <Button Content="show view C : ListBox ComboBox"
                     Command="{Binding ShowViewCBtn}"></Button>
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>
