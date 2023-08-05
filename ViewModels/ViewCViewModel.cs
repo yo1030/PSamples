@@ -27,6 +27,8 @@ namespace PSamples.ViewModels
             Areas.Add(new ComboBoxViewModel(1, "yokohama"));
             Areas.Add(new ComboBoxViewModel(2, "kobe"));
             Areas.Add(new ComboBoxViewModel(3, "takamatsu"));
+
+            SelectedArea = Areas[1];
         }
 
         //MyListBox
@@ -45,7 +47,13 @@ namespace PSamples.ViewModels
             set { SetProperty(ref _areas, value); }
         }
 
-
+        //SelectedArea
+        private ComboBoxViewModel _selectedArea;
+        public ComboBoxViewModel SelectedArea
+        {
+            get { return _selectedArea; }
+            set { SetProperty(ref _selectedArea, value); }
+        }
 
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {

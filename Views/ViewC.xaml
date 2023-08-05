@@ -14,7 +14,8 @@
             <ComboBox ItemsSource="{Binding Areas}"
                       Width="200"
                       SelectedValuePath="Value"
-                      DisplayMemberPath="DisplayValue"></ComboBox>
+                      DisplayMemberPath="DisplayValue"
+                      SelectedItem="{Binding SelectedArea}"></ComboBox>
         </StackPanel>
     </Grid>
 </UserControl>
