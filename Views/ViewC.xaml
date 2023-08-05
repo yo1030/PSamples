@@ -4,7 +4,13 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Label Content="View C画面"
-               FontSize="50"></Label>
+        <StackPanel>
+            <Label Content="View C画面"
+                   FontSize="50"></Label>
+            <ListBox Height="100"
+                     Width="200"
+                     Margin="10"
+                     ItemsSource="{Binding MyListBox}"></ListBox>
+        </StackPanel>
     </Grid>
 </UserControl>
