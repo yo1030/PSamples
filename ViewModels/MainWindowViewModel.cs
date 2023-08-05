@@ -25,6 +25,7 @@ namespace PSamples.ViewModels
             ShowViewABtn = new DelegateCommand(ShowViewABtnExecute);
             ShowViewPBtn = new DelegateCommand(ShowViewPBtnExecute);
             ShowViewBBtn = new DelegateCommand(ShowViewBBtnExecute);
+            ShowViewCBtn = new DelegateCommand(ShowViewCBtnExecute);
         }
 
         //SystemDateLabel
@@ -45,6 +46,7 @@ namespace PSamples.ViewModels
         public DelegateCommand ShowViewABtn { get; }
         public DelegateCommand ShowViewPBtn { get; }
         public DelegateCommand ShowViewBBtn { get; }
+        public DelegateCommand ShowViewCBtn { get; }
 
         private void ShowViewABtnExecute()
         {
@@ -61,6 +63,10 @@ namespace PSamples.ViewModels
             var p = new DialogParameters();
             p.Add(nameof(ViewBViewModel.ViewBTextBox), SystemDateLabel);
             _dialogService.ShowDialog(nameof(ViewB), p, ViewBClose);
+        }
+        private void ShowViewCBtnExecute()
+        {
+            _regionManager.RequestNavigate("ContentRegion", nameof(ViewC));
         }
 
         private void ViewBClose(IDialogResult dialogResult)
