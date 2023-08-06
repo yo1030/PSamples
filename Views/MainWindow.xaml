@@ -5,6 +5,9 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="500" Width="525"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolVisibilityConverter"></BooleanToVisibilityConverter>
+    </Window.Resources>
     <Grid>
         <StackPanel>
             <Label Content="システム日時"></Label>
@@ -19,6 +22,9 @@
                     Command="{Binding ShowViewBBtn}"></Button>
             <Button Content="show view C : ListBox ComboBox"
                     Command="{Binding ShowViewCBtn}"></Button>
+            <Button Content="Content"
+                    Visibility="{Binding ButtonEnabled,
+                    Converter={StaticResource BoolVisibilityConverter}}"></Button>
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>
     </Grid>
