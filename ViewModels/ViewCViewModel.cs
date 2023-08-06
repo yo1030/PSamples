@@ -29,6 +29,8 @@ namespace PSamples.ViewModels
             Areas.Add(new ComboBoxViewModel(3, "takamatsu"));
 
             SelectedArea = Areas[1];
+
+            AreaSelectionChanged = new DelegateCommand(AreaSelectionChangedExecute);
         }
 
         //MyListBox
@@ -55,6 +57,18 @@ namespace PSamples.ViewModels
             set { SetProperty(ref _selectedArea, value); }
         }
 
+        //AreaSelectioinChanged
+        public DelegateCommand AreaSelectionChanged { get; }
+
+        //SelectedAreaLabel
+        private string _selectedAreaLabel;
+        public string SelectedAreaLabel
+        {
+            get { return _selectedAreaLabel; }
+            set { SetProperty(ref _selectedAreaLabel, value); }
+        }
+
+
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
             if (_messageService.Question("閉じますか？") == System.Windows.MessageBoxResult.OK)
@@ -74,6 +88,11 @@ namespace PSamples.ViewModels
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
+        }
+
+        private void AreaSelectionChangedExecute()
+        {
+            SelectedAreaLabel = SelectedArea.Value + " : " + SelectedArea.DisplayValue;
         }
     }
 }
