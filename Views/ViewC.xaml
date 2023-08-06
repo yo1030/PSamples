@@ -19,7 +19,8 @@
                       SelectedItem="{Binding SelectedArea}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
-                        <prism:InvokeCommandAction Command="{Binding AreaSelectionChanged}">
+                        <prism:InvokeCommandAction Command="{Binding AreaSelectionChanged}"
+                                                   TriggerParameterPath="AddedItems">
                         </prism:InvokeCommandAction>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>

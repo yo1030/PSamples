@@ -30,7 +30,7 @@ namespace PSamples.ViewModels
 
             SelectedArea = Areas[1];
 
-            AreaSelectionChanged = new DelegateCommand(AreaSelectionChangedExecute);
+            AreaSelectionChanged = new DelegateCommand<object[]>(AreaSelectionChangedExecute);
         }
 
         //MyListBox
@@ -58,7 +58,7 @@ namespace PSamples.ViewModels
         }
 
         //AreaSelectioinChanged
-        public DelegateCommand AreaSelectionChanged { get; }
+        public DelegateCommand<object[]> AreaSelectionChanged { get; }
 
         //SelectedAreaLabel
         private string _selectedAreaLabel;
@@ -90,7 +90,7 @@ namespace PSamples.ViewModels
         {
         }
 
-        private void AreaSelectionChangedExecute()
+        private void AreaSelectionChangedExecute(object[] items)
         {
             SelectedAreaLabel = SelectedArea.Value + " : " + SelectedArea.DisplayValue;
         }
