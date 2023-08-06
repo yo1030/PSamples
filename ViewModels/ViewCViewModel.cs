@@ -12,13 +12,17 @@ namespace PSamples.ViewModels
     public class ViewCViewModel : BindableBase, IConfirmNavigationRequest
     {
         private IMessageService _messageService;
+        private MainWindowViewModel _mainWindowViewModel;
 
-        public ViewCViewModel(): this(new MessageService())
+        public ViewCViewModel(MainWindowViewModel mainWindowViewModel) : this(new MessageService(), mainWindowViewModel)
         {
 
         }
-        public ViewCViewModel(IMessageService messageService)
+        public ViewCViewModel(
+            IMessageService messageService,
+            MainWindowViewModel mainWindowViewModel)
         {
+            _mainWindowViewModel = mainWindowViewModel;
             _messageService = messageService;
             MyListBox.Add("AAAAA");
             MyListBox.Add("SSSSS");
@@ -93,6 +97,8 @@ namespace PSamples.ViewModels
         private void AreaSelectionChangedExecute(object[] items)
         {
             SelectedAreaLabel = SelectedArea.Value + " : " + SelectedArea.DisplayValue;
+
+            _mainWindowViewModel.Title = SelectedAreaLabel;
         }
     }
 }
