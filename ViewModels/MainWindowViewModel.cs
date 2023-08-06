@@ -17,12 +17,19 @@ namespace PSamples.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private bool _buttonEnabled = false;
+        public bool ButtonEnabled
+        {
+            get { return _buttonEnabled; }
+            set { SetProperty(ref _buttonEnabled, value); }
+        }
+
         public MainWindowViewModel(IRegionManager regionManager, IDialogService dialogService)
         {
             _regionManager = regionManager;
             _dialogService = dialogService;
             SystemDateUpdateBtn = new DelegateCommand(SystemDateUpdateBtnExecute);
-            ShowViewABtn = new DelegateCommand(ShowViewABtnExecute);
+            ShowViewABtn = new DelegateCommand(ShowViewABtnExecute).ObservesCanExecute(() => ButtonEnabled);
             ShowViewPBtn = new DelegateCommand(ShowViewPBtnExecute);
             ShowViewBBtn = new DelegateCommand(ShowViewBBtnExecute);
             ShowViewCBtn = new DelegateCommand(ShowViewCBtnExecute);
@@ -41,6 +48,7 @@ namespace PSamples.ViewModels
 
         private void SystemDateUpdateBtnExecute()
         {
+            ButtonEnabled = true;
             SystemDateLabel = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
         }
         public DelegateCommand ShowViewABtn { get; }
